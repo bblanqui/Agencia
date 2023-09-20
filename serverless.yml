@@ -29,6 +29,7 @@ provider:
     DB_NAME: ${env:DB_NAME}
     DB_USER: ${env:DB_USER}
     DB_PASSWORD: ${env:DB_PASSWORD}
+    KEY_TOKEN: ${env:KEY_TOKEN}
 
   iamRoleStatements:
     - Effect: "Allow"
@@ -74,7 +75,7 @@ provider:
 #    - include-me-dir/**
 
 functions:
-  selectImagenAntext:
+  HotelHandelr:
     handler: handlers/ControllerHotel.hotel_service
     #    The following are a few example events you can configure
     #    NOTE: Please make sure to change your handler code to work with those events
@@ -84,3 +85,37 @@ functions:
           path: /HotelService
           method: any
 
+
+  LoginHandler:
+    handler: handlers/ControllerHotel.login
+    #    The following are a few example events you can configure
+    #    NOTE: Please make sure to change your handler code to work with those events
+    #    Check the event documentation for details
+    events:
+      - http:
+          path: /login
+          method: post
+
+
+  HabitacionHandler:
+      timeout: 60
+      handler: handlers/ControllerHotel.habitacion_service
+      #    The following are a few example events you can configure
+      #    NOTE: Please make sure to change your handler code to work with those events
+      #    Check the event documentation for details
+      events:
+        - http:
+            path: /HabitacionService
+            method: any
+
+
+
+  SearchHotelHandler:
+    handler: handlers/ControllerHotel.search_hotel
+    #    The following are a few example events you can configure
+    #    NOTE: Please make sure to change your handler code to work with those events
+    #    Check the event documentation for details
+    events:
+      - http:
+          path: /SearchHotel
+          method: POST
