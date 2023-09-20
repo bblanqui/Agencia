@@ -7,13 +7,13 @@ from utils.FechaLetras import obtener_fecha
 
 
 def send_mail(capacidad, precios, impuesto, nombre_reserva, direccion, ciudad, fecha_inicio, fecha_fin, numero_reserva,
-              nombre_hotel):
+              nombre_hotel, correo_cliente):
     # Configuración
     smtp_server = 'smtp.gmail.com'
     smtp_port = 587  # El puerto para Gmail es 587
     usuario = 'brianblanquiceth@gmail.com'  # Reemplaza con tu dirección de correo
     contrasena = environ.get('KEY_EMAIL')  # Reemplaza con tu contraseña de Gmail
-    destinatario = 'brallanblanquiceth@gmail.com'  # Reemplaza con la dirección del destinatario
+    destinatario = correo_cliente  # Reemplaza con la dirección del destinatario
 
     # Obtén la fecha y hora actual
     fecha_reserva = obtener_fecha(datetime.datetime.now())

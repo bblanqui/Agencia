@@ -17,4 +17,5 @@ var/
 *.egg
 *.env
 # Serverless directories
-.serverless
+*.serverless
+serverless.yml
