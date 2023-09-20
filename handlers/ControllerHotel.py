@@ -4,11 +4,14 @@ from utils.DecodeToken import require_token
 from servicio.ServicioUser import ServicioUser
 from servicio.ServicioHabitacion import ServicioHabitacion
 from servicio.ServicioSearchHotel import ServicioSearchHotel
+from servicio.ServicioReservaHotel import ServicioReservaHotel
+
 
 hotel_servicio = ServicioHotel()
 user_service = ServicioUser()
 habitacion_services = ServicioHabitacion()
 search_hotel_date = ServicioSearchHotel()
+reserva_hotel_cliente = ServicioReservaHotel()
 
 @require_token
 def hotel_service(event, context):
@@ -41,6 +44,7 @@ def login(event, context):
 
 @require_token
 def habitacion_service(event, context):
+
     global result
     method = event['httpMethod']
     parametros_url = event['queryStringParameters']
@@ -62,6 +66,16 @@ def habitacion_service(event, context):
 def search_hotel(event, context):
 
     result = search_hotel_date.seach_hotel(event)
+    response = {
+        "statusCode": result["statusCode"],
+        "body": json.dumps({"Result": result})
+    }
+    return response
+
+
+def reserva_hotel(event, context):
+
+    result = reserva_hotel_cliente.insert_reserva(event)
     response = {
         "statusCode": result["statusCode"],
         "body": json.dumps({"Result": result})

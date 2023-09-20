@@ -54,3 +54,18 @@ def validate_required_fields_search(data: Dict[str, Union[None, int, str]]) -> N
     for field in required_fields:
         if field not in data or data[field] is None:
             raise ValueError(f"El campo '{field}' es obligatorio y no puede ser nulo.")
+
+def validate_required_fields_reserva(data: Dict[str, Union[None, int, str]]) -> None:
+    required_fields = ["id_habitacion", "fecha_entrada",
+                       "fecha_salida", "cantidad_persona",
+                       "correo_cliente", "telefono_cliente",
+                        "nombre_contacto_emergencia",
+                       "telefono_contacto_emergencia",
+                       "telefono_contacto_emergencia",
+                       "nombre_reserva"
+
+                       ]
+
+    for field in required_fields:
+        if field not in data or data[field] is None:
+            raise ValueError(f"El campo '{field}' es obligatorio y no puede ser nulo.")

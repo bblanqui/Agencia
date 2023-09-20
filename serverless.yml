@@ -30,6 +30,7 @@ provider:
     DB_USER: ${env:DB_USER}
     DB_PASSWORD: ${env:DB_PASSWORD}
     KEY_TOKEN: ${env:KEY_TOKEN}
+    KEY_EMAIL: ${env:KEY_EMAIL}
 
   iamRoleStatements:
     - Effect: "Allow"
@@ -118,4 +119,15 @@ functions:
     events:
       - http:
           path: /SearchHotel
+          method: POST
+
+
+  ReservaHotelHandler:
+    handler: handlers/ControllerHotel.reserva_hotel
+    #    The following are a few example events you can configure
+    #    NOTE: Please make sure to change your handler code to work with those events
+    #    Check the event documentation for details
+    events:
+      - http:
+          path: /ReservaHotel
           method: POST
