@@ -1,5 +1,3 @@
-Proyecto de Administración de Alojamiento en Hoteles Locales
-
 # Proyecto de Administración de Alojamiento en Hoteles Locales
 
 Descripción del Proyecto
@@ -476,6 +474,15 @@ ejemplo de respuesta:
         }
 
 
+# EndPoints
+
+* ANY - https://6ilqj9erwb.execute-api.us-east-1.amazonaws.com/dev/HotelService
+*  POST - https://6ilqj9erwb.execute-api.us-east-1.amazonaws.com/dev/login
+*  ANY - https://6ilqj9erwb.execute-api.us-east-1.amazonaws.com/dev/HabitacionService
+*  POST - https://6ilqj9erwb.execute-api.us-east-1.amazonaws.com/dev/SearchHotel
+*  POST - https://6ilqj9erwb.execute-api.us-east-1.amazonaws.com/dev/ReservaHotel
+*  GET - https://6ilqj9erwb.execute-api.us-east-1.amazonaws.com/dev/ObtenerReservas
+*  GET - https://6ilqj9erwb.execute-api.us-east-1.amazonaws.com/dev/ObtenerReservaDetalle
 
 
 
